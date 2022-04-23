@@ -6,9 +6,6 @@ export default class Home extends React.Component {
     return (
       <div>
           <CustomNav />
-          <p>
-
-          </p>
       </div>
     );
   }

@@ -43,33 +43,20 @@ export default class CallLog extends React.Component {
             <div>
                 <Table responsive striped bordered hover variant="dark">
                     <thead>
-                    <tr>
-                      <th>#</th>
-                      {Array.from({ length: 12 }).map((_, index) => (
-                        <th key={index}>Table heading</th>
-                      ))}
-                    </tr>
-                  </thead>
+                        <tr>
+                          <th>User Name</th>
+                          <th>Last Location</th>
+                          <th>KYC Check</th>
+                          <th>Number of Calls</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                    <tr>
-                      <td>1</td>
-                      {Array.from({ length: 12 }).map((_, index) => (
-                        <td key={index}>Table cell {index}</td>
-                      ))}
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      {Array.from({ length: 12 }).map((_, index) => (
-                        <td key={index}>Table cell {index}</td>
-                      ))}
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      {Array.from({ length: 12 }).map((_, index) => (
-                        <td key={index}>Table cell {index}</td>
-                      ))}
-                    </tr>
-                  </tbody>
+                        {this.state.callLog.map((option) => (
+                            <tr key={option.id}>{option.name}</tr>
+                        ))}
+                        />
+                        ))}
+                      </tbody>
                 </Table>
             </div>
         )
