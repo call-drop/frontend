@@ -1,11 +1,13 @@
 import React from 'react';
-import CustomNav from "./navbar";
 
 export default class Home extends React.Component {
   render() {
     return (
       <div>
-          <CustomNav />
+        <h1>Welcome to Call Drop</h1>
+        <p>
+          We are here to help you find the best call center for your business.
+        </p>
       </div>
     );
   }

@@ -6,10 +6,12 @@ import Ticket from "./components/ticket";
 import CallLog from "./components/callLog";
 import Plan from "./components/plan";
 import SignUp from "./components/signup";
+import
 
 function App() {
   return (
     <div className="App">
+        <CustomNav />
         <Home />
         <Router>
             <Routes>
