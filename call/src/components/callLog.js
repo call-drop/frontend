@@ -41,6 +41,7 @@ export default class CallLog extends React.Component {
     render(){
         return(
             <div>
+                <h1 className="bg-dark text-white"> Welcome {"User"} ! </h1>
                 <Table responsive striped bordered hover variant="dark">
                     <thead>
                         <tr>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Card} from "react-bootstrap";
-import {Form, Formik, Field, ErrorMessage} from "formik";
+import {Form, Formik, Field} from "formik";
 
 export default class Ticket extends React.Component {
     render(){

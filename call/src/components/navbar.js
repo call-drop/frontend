@@ -11,14 +11,12 @@ export default function CustomNav() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/call_log">Call Log</Nav.Link>
-              <Nav.Link href="/pricing">Plan</Nav.Link>
+              <Nav.Link href="/plan">Plan</Nav.Link>
               <Nav.Link href="/ticket">Ticket</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                About Us
-              </Nav.Link>
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
+              <Nav.Link href="/login"> Login</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           </Container>
