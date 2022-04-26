@@ -6,12 +6,11 @@ import Ticket from "./components/ticket";
 import CallLog from "./components/callLog";
 import Plan from "./components/plan";
 import SignUp from "./components/signup";
-import
+import SignUp from "./components/login";
 
 function App() {
   return (
     <div className="App">
-        <CustomNav />
         <Home />
         <Router>
             <Routes>
@@ -19,6 +18,7 @@ function App() {
                 <Route path='/call_Log' element={<CallLog />}/>
                 <Route path='/plan' element={<Plan />}/>
                 <Route path='/signup' element={<SignUp />}/>
+                <Route path='/login' element={<Login />}/>
             </Routes>
         </Router>
     </div>
