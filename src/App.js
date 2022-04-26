@@ -6,7 +6,7 @@ import Ticket from "./components/ticket";
 import CallLog from "./components/callLog";
 import Plan from "./components/plan";
 import SignUp from "./components/signup";
-import SignUp from "./components/login";
+import Login from "./components/login";
 
 function App() {
   return (
