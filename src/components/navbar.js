@@ -19,8 +19,9 @@ export default function CustomNav() {
                   menuVariant="dark">
                   <NavDropdown.Item href="/sms">Send SMS</NavDropdown.Item>
                   <NavDropdown.Item href="/call">Call</NavDropdown.Item>
+                  <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/customerList">lol bro</NavDropdown.Item>
+                  <NavDropdown.Item href="/customerList">Customer List</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>

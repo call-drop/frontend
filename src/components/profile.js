@@ -1,0 +1,70 @@
+import React, { Component } from "react";
+import axios from "axios";
+import { Button } from "react-bootstrap";
+
+export default class customerList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            numberList: [],
+            customerId:'',
+        };
+        this.handleGetList = this.handleGetList.bind(this);
+    }
+
+
+    handleGetList() {
+        axios.get("https://call--drop.herokuapp.com/api/phone/get/" + this.state.customerId, {withCredentials: true})
+        .then(function (response) {
+            console.log(response);
+            this.setState({
+                numberList: response.data,
+            });
+        }.bind(this))
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    render() {
+        console.log(this.state.numberList);
+        return (
+            <div className="bg-dark text-white">
+                <h1>Welcome to your Profile</h1>
+
+                <div className="form-group">
+                    <label>Customer ID</label>
+                    <input type="customerId" onChange={this.onChangeCustomerId} value={this.state.customerId} className="form-control" placeholder="Customer ID" />
+                </div>
+
+                <Button type="submit" onClick={this.handleGetList} > Submit </Button>
+
+                {() => {if (this.state.numberList.length > 0) {
+                    return (
+                        <div>
+                            The list of the customers:
+                            <ul>
+                                {this.state.numberList.map((val) => {
+                                    return (
+                                        <li key={val}>
+                                            {val}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    );
+                }
+                else {
+                    return (
+                        <div>
+                            <h2>No Customers</h2>
+                        </div>
+                    );
+                }
+            }}
+            </div>
+        );
+    }
+}

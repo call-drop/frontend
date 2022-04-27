@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {Button} from "react-bootstrap";
 import axios from "axios";
 
 
@@ -11,32 +10,41 @@ export default class customerList extends Component {
             callList: [],
             employee: this.props.employee
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleGetList = this.handleGetList.bind(this);
     }
 
 
-    handleGetList(event) {
-        axios.get("https://call--drop.herokuapp.com/api/customer/list")
-        .then(function (response) {
-            console.log(response);
-            this.setState({
-                callList: response.data,
-            });
-        }.bind(this))
-        .catch(function (error) {
-            console.log(error);
-        });
-        event.preventDefault();
+    handleGetList() {
+        if (this.state.employee) {
+            axios.get("https://call--drop.herokuapp.com/api/customer/list", {withCredentials: true})
+                .then(function (response) {
+                    console.log(response);
+                    this.setState({
+                        callList: response.data,
+                    });
+                }.bind(this))
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
+     componentDidMount() {
+        this.handleGetList();
     }
 
     render() {
+        console.log(this.state.callList);
         return (
             <div>
                 The list of the customers:
                 <ul>
-                    callList.map(function(call) {
-                        <li>{call.firstName} {call.lastName}</li>
-                    })
+                    {this.state.callList.map((val) => {
+                        return (
+                            <li key={val}>
+                                {val}
+                            </li>
+                        );
+                    })}
                 </ul>
                     
             </div>
