@@ -11,11 +11,11 @@ export default class Tower extends React.Component {
     }
 
     handleGetList() {
-        axios.get("https://call--drop.herokuapp.com/api/towers-to-maintain/", {withCredentials: true})
+        axios.get("https://call--drop.herokuapp.com/api/towers-to-maintain", {withCredentials: true})
             .then(function (response) {
                 console.log(response);
                 this.setState({
-                    towerList: response.data,
+                    towerList: response.data.data.data,
                 });
             }.bind(this))
             .catch(function (error) {
@@ -25,6 +25,7 @@ export default class Tower extends React.Component {
 
     componentDidMount() {
         this.handleGetList();
+        console.log("lol", this.state.towerList);
     }
 
   render() {

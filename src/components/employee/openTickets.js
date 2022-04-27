@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from '../../axios';
 
 export default class openTickets extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export default class openTickets extends React.Component {
             .then(function (response) {
                 console.log(response);
                 this.setState({
-                    ticketList: response.data,
+                    ticketList: response.data.data,
                 });
             }.bind(this))
             .catch(function (error) {

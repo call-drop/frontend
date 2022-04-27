@@ -12,6 +12,7 @@ import Call from "./components/call";
 import CustomerList from "./components/employee/customerList";
 import Profile from "./components/profile";
 import Tower from "./components/employee/tower";
+import openTickets from "./components/employee/openTickets";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/customerList' element={<CustomerList />}/>
                 <Route path='/profile' element={<Profile />}/>
                 <Route path='/towerCheck' element={<Tower />}/>
+                <Route path='/openTickets ' element={<openTickets />}/>
             </Routes>
         </Router>
     </div>
