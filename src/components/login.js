@@ -16,7 +16,7 @@ const Login = () => {
       localStorage.setItem("password", values.password);
       if (values.userid === "-1") localStorage.setItem("isEmp", "1");
       else localStorage.setItem("isEmp", "");
-      window.location.reload();
+      window.location.href = "/";
     },
   });
   return (

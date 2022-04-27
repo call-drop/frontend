@@ -39,9 +39,9 @@ export default class SignUp extends Component {
     console.log("A name was submitted: " + this.state.lastName);
     axios
       .post("https://call--drop.herokuapp.com/api/customer/create", {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        aadhar: this.state.email,
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        aadhaar_number: this.state.aadhar,
       })
       .then(function (response) {
         console.log(response);
@@ -51,46 +51,55 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <div>
-        <form className="bg-dark text-white">
-          <h3>Sign Up</h3>
-          <div className="form-group col-lg-2">
-            <label>First name</label>
-            <input
-              type="text"
-              onChange={this.firstNameChange}
-              value={this.state.value}
-              placeholder="First name"
-            />
-          </div>
-          <div className="form-group">
-            <label>Last name</label>
-            <input
-              type="text"
-              onChange={this.lastNameChange}
-              className="form-control"
-              placeholder="Last name"
-            />
-          </div>
-          <div className="form-group">
-            <label>Email address</label>
-            <input
-              type="aadhar"
-              onChange={this.aadharChange}
-              className="form-control"
-              placeholder="Aadhar Number"
-            />
-          </div>
-          <Button type="submit" onClick={this.handleSubmit}>
-            {" "}
-            Sign Up
-          </Button>
+      <div className="justify-content-center">
+        <br />
+        <br />
+        <br />
+        <br />
 
-          <p className="forgot-password text-right">
-            Already registered
-            <a href="/login"> Login In ?</a>
-          </p>
-        </form>
+        <div className="justify-content-center ">
+          <form className="text-black w-50 ">
+            <h3>Sign Up</h3>
+            <div className="form-group">
+              <label>First name</label>
+              <input
+                type="text"
+                onChange={this.firstNameChange}
+                value={this.state.value}
+                className="form-control"
+                placeholder="First name"
+              />
+            </div>
+            <div className="form-group">
+              <label>Last name</label>
+              <input
+                type="text"
+                onChange={this.lastNameChange}
+                className="form-control"
+                placeholder="Last name"
+              />
+            </div>
+            <div className="form-group">
+              <label>Aadhaar Number</label>
+              <input
+                type="aadhar"
+                onChange={this.aadharChange}
+                className="form-control"
+                placeholder="Aadhar Number"
+              />
+            </div>
+            <br />
+            <Button type="submit" onClick={this.handleSubmit}>
+              {" "}
+              Sign Up
+            </Button>
+
+            <p className="forgot-password text-right">
+              Already registered
+              <a href="/login"> Login In ?</a>
+            </p>
+          </form>
+        </div>
       </div>
     );
   }
