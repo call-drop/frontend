@@ -9,13 +9,11 @@ export default class Linked extends Component {
       number: undefined,
       is_postpaid: false,
       owner: undefined,
-      kyc_agent: undefined,
       last_known_location: 4,
     };
     this.numberChange = this.numberChange.bind(this);
     this.is_postpaidChange = this.is_postpaidChange.bind(this);
     this.ownerChange = this.ownerChange.bind(this);
-    this.kyc_agentChange = this.kyc_agentChange.bind(this);
     this.last_known_locationChange = this.last_known_locationChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,12 +37,6 @@ export default class Linked extends Component {
     });
   }
 
-  kyc_agentChange(event) {
-    this.setState({
-      kyc_agent: event.target.value,
-    });
-  }
-
   last_known_locationChange(event) {
     this.setState({
       last_known_location: event.target.value,
@@ -55,11 +47,11 @@ export default class Linked extends Component {
     event.preventDefault();
     axios
       .post("https://call--drop.herokuapp.com/api/phone/create", {
-        number: this.state.number,
-        is_postpaid: this.state.is_postpaid,
-        owner: this.state.owner,
-        kyc_agent: this.state.kyc_agent,
-        last_known_location: this.state.last_known_location,
+        number: Number(this.state.number),
+        is_postpaid: Boolean(this.state.is_postpaid),
+        owner: Number(this.state.owner),
+        last_known_location: Number(this.state.last_known_location),
+        kyc_agent: "null",
       })
       .then(function (response) {
         console.log(response);
@@ -79,7 +71,7 @@ export default class Linked extends Component {
             <div className="form-group">
               <label>Number</label>
               <input
-                type="text"
+                type="number"
                 onChange={this.numberChange}
                 value={this.state.value}
                 className="form-control"
@@ -101,19 +93,10 @@ export default class Linked extends Component {
             <div className="form-group">
               <label>Owner</label>
               <input
-                type="aadhar"
+                type="number"
                 onChange={this.ownerChange}
                 className="form-control"
                 placeholder="Owner"
-              />
-            </div>
-            <div className="form-group">
-              <label>KYC Agent</label>
-              <input
-                type="number"
-                onChange={this.kyc_agentChange}
-                className="form-control"
-                placeholder="KYC Agent"
               />
             </div>
 
