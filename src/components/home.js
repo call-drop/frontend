@@ -25,8 +25,8 @@ export default class Home extends React.Component {
 
 // employee features
     // create plan
-    //payment
-    //profile
-    //incomplete kyc
-    //tower to be serviced and marked
-    //open tickets view
+    // payment
+    // profile
+    // incomplete kyc
+    // tower to be serviced and marked
+    // open tickets view
