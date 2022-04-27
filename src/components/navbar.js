@@ -15,12 +15,12 @@ export default function CustomNav() {
               <Nav.Link href="/ticket">Ticket</Nav.Link>
               <NavDropdown
                   id="nav-dropdown-dark-example"
-                  title="User Features"
+                  title="Features"
                   menuVariant="dark">
                   <NavDropdown.Item href="/sms">Send SMS</NavDropdown.Item>
                   <NavDropdown.Item href="/call">Call</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/action/3.4">lol bro</NavDropdown.Item>
+                  <NavDropdown.Item href="/customerList">lol bro</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>

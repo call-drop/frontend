@@ -9,7 +9,7 @@ import SignUp from "./components/signup";
 import Login from "./components/login";
 import SMS from "./components/sms";
 import Call from "./components/call";
-
+import CustomerList from "./components/customerList";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
                 <Route path='/login' element={<Login />}/>
                 <Route path='/sms' element={<SMS />}/>
                 <Route path='/call' element={<Call />}/>
+                <Route path='/customerList' element={<CustomerList />}/>
             </Routes>
         </Router>
     </div>
