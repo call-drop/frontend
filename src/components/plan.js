@@ -33,32 +33,37 @@ export default function Plan() {
   console.log(plans);
 
   return (
-    <div>
-      <h1> Plans</h1>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>cost</th>
-            <th>type</th>
-            <th>value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {!loading ? (
-            plans.map((values, plan) => (
-              <tr>
-                <td>{values.id}</td>
-                <td>{values.cost}</td>
-                <td>{values.type}</td>
-                <td>{values.value}</td>
-              </tr>
-            ))
-          ) : (
-            <div>loading</div>
-          )}
-        </tbody>
-      </Table>
+    <div className=" justify-content-center">
+      <div className="w-75">
+        <h1> Plans</h1>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>id</th>
+              <td>validity</td>
+              <th>cost</th>
+              <th>type</th>
+              <th>value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {!loading ? (
+              plans.map((values, plan) => (
+                <tr>
+                  <td>{values.id}</td>
+                  <td>{values.validity}</td>
+
+                  <td>{values.cost}</td>
+                  <td>{values.type}</td>
+                  <td>{values.value}</td>
+                </tr>
+              ))
+            ) : (
+              <div>Loading</div>
+            )}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 }
