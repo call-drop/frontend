@@ -14,6 +14,7 @@ import Tower from "./components/employee/tower";
 import OpenTickets from "./components/employee/openTickets";
 import Linker from "./components/linker";
 import KYC from "./components/employee/KycList";
+import MMS from "./components/mms";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sms" element={<SMS />} />
+          <Route path="/mms" element={<MMS />} />
           <Route path="/call" element={<Call />} />
           <Route path="/customerList" element={<CustomerList />} />
           <Route path="/profile" element={<Profile />} />

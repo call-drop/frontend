@@ -15,6 +15,7 @@ export default function CallLog() {
       .then((response) => {
         setCalls(response.data.data);
         setLoading(false);
+        toast.success("Calls fetched successfully");
       })
       .catch(function (error) {
         console.log(error);

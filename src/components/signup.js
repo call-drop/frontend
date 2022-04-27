@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 import axios from "../axios";
 
 export default class SignUp extends Component {
@@ -45,6 +46,7 @@ export default class SignUp extends Component {
       })
       .then(function (response) {
         console.log(response);
+        toast.success("Sign Up Successfully");
       });
     event.preventDefault();
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from '../../axios';
 import Table from "react-bootstrap/Table";
+import { toast } from 'react-toastify';
 
 
 export default class OpenTickets extends React.Component {
@@ -17,6 +18,7 @@ export default class OpenTickets extends React.Component {
         axios.get("https://call--drop.herokuapp.com/api/tickets/list", {withCredentials: true})
             .then(function (response) {
                 console.log(response);
+                toast.success("List of the tickets");
                 this.setState({
                     ticketList: response.data.data,
                     loading:false

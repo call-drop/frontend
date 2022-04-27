@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Button} from "react-bootstrap";
+import { toast } from "react-toastify";
 import axios from "../axios";
 
 
@@ -9,17 +10,24 @@ export default class SMS extends Component {
         super(props);
         this.state = {
             to: '',
-            from: 8296446792,
+            from: '',
             text: '',
         };
         this.toChange = this.toChange.bind(this);
         this.textChange = this.textChange.bind(this);
+        this.fromChange = this.fromChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     toChange(event) {
         this.setState({
         to: event.target.value,
+        });
+    }
+
+    fromChange(event) {
+        this.setState({
+        from: event.target.value,
         });
     }
 
@@ -37,6 +45,7 @@ export default class SMS extends Component {
             from_id: this.state.from,
             content: this.state.text,
         }).then(function (response) {
+            toast.success("Message Sent");
             console.log(response);
         }).catch(function (error) {
             console.log(error);
@@ -51,7 +60,12 @@ export default class SMS extends Component {
                     <h3>Send SMS</h3>
                     <div className="form-group col-lg-2">
                         <label>To Number</label>
-                        <input type="text" onChange={this.toChange} value={this.state.value} placeholder="to" />
+                        <input type="text" onChange={this.toChange} value={this.state.to} placeholder="to" />
+                    </div>
+
+                    <div className="form-group col-lg-2">
+                        <label>From Number</label>
+                        <input type="text" onChange={this.fromChange} value={this.state.from} placeholder="to" />
                     </div>
                     <div className="form-group">
                         <label>Message</label>

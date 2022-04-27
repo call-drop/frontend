@@ -14,6 +14,7 @@ export default function Plan() {
       .then((response) => {
         setPlans(response.data.data);
         setLoading(false);
+        toast.success("Plans fetched successfully");
       })
       .catch(function (error) {
         console.log(error);

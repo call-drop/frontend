@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { toast } from "react-toastify";
 import axios from "../../axios";
 
 
@@ -18,6 +19,7 @@ export default class customerList extends Component {
         if (this.state.employee) {
             axios.get("https://call--drop.herokuapp.com/api/customer/list", {withCredentials: true})
                 .then(function (response) {
+                    toast.success("List of the customers");
                     console.log(response);
                     this.setState({
                         callList: response.data,

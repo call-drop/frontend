@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 import axios from "../axios";
 
 export default class Linked extends Component {
@@ -55,6 +56,7 @@ export default class Linked extends Component {
       })
       .then(function (response) {
         console.log(response);
+        toast.success("Linked Successfully");
       });
     event.preventDefault();
   }
