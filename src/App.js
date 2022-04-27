@@ -11,6 +11,7 @@ import SMS from "./components/sms";
 import Call from "./components/call";
 import CustomerList from "./components/employee/customerList";
 import Profile from "./components/profile";
+import Tower from "./components/employee/tower";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                 <Route path='/call' element={<Call />}/>
                 <Route path='/customerList' element={<CustomerList />}/>
                 <Route path='/profile' element={<Profile />}/>
+                <Route path='/towerCheck' element={<Tower />}/>
             </Routes>
         </Router>
     </div>

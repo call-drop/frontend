@@ -10,13 +10,11 @@ export default class SignUp extends Component {
         this.state = {
             firstName: '',
             lastName: '',
-            email: '',
-            password: '',
+            aadhar: '',
             };
         this.firstNameChange = this.firstNameChange.bind(this);
         this.lastNameChange = this.lastNameChange.bind(this);
-        this.emailChange = this.emailChange.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
+        this.aadharChange = this.aadharChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -32,28 +30,19 @@ export default class SignUp extends Component {
         });
     }
 
-    emailChange(event) {
+    aadharChange(event) {
         this.setState({
-        email: event.target.value,
-        });
-    }
-
-    passwordChange(event) {
-        this.setState({
-        password: event.target.value,
+            aadhar: event.target.value,
         });
     }
 
     handleSubmit(event) {
         console.log('A name was submitted: ' + this.state.firstName);
         console.log('A name was submitted: ' + this.state.lastName);
-        console.log('A name was submitted: ' + this.state.email);
-        console.log('A name was submitted: ' + this.state.password);
-        axios.post("https://call--drop.herokuapp.com/", {
+        axios.post("https://call--drop.herokuapp.com/api/customer/create", {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            email: this.state.email,
-            password: this.state.password,
+            aadhar: this.state.email,
         }).then(function (response) {
             console.log(response);
         })
@@ -75,11 +64,7 @@ export default class SignUp extends Component {
                     </div>
                     <div className="form-group">
                         <label>Email address</label>
-                        <input type="email"  onChange={this.emailChange} className="form-control" placeholder="Enter email" />
-                    </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input type="password"  onChange={this.passwordChange} className="form-control" placeholder="Enter password" />
+                        <input type="aadhar"  onChange={this.aadharChange} className="form-control" placeholder="Aadhar Number" />
                     </div>
                     <Button type="submit" onClick={this.handleSubmit} > Sign Up</Button>
 
