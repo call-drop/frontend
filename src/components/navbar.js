@@ -23,6 +23,7 @@ export default function CustomNav() {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/customerList">Customer List</NavDropdown.Item>
                   <NavDropdown.Item href="/towerCheck"> Tower Check </NavDropdown.Item>
+                  <NavDropdown.Item href="/openTickets"> Open Tickets </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>

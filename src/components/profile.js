@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "../axios";
 import { Button } from "react-bootstrap";
 
-export default class customerList extends Component {
+export default class Profile extends Component {
 
     constructor(props) {
         super(props);

@@ -1,21 +1,21 @@
 import React from 'react';
 import axios from '../../axios';
 
-export default class Tower extends React.Component {
+export default class openTickets extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            towerList: [],
+            ticketList: [],
         };
         this.handleGetList = this.handleGetList.bind(this);
     }
 
     handleGetList() {
-        axios.get("https://call--drop.herokuapp.com/api/towers-to-maintain", {withCredentials: true})
+        axios.get("https://call--drop.herokuapp.com/api/tickets/list", {withCredentials: true})
             .then(function (response) {
                 console.log(response);
                 this.setState({
-                    towerList: response.data.data.data,
+                    ticketList: response.data.data,
                 });
             }.bind(this))
             .catch(function (error) {
@@ -25,15 +25,14 @@ export default class Tower extends React.Component {
 
     componentDidMount() {
         this.handleGetList();
-        console.log("lol", this.state.towerList);
     }
 
   render() {
     return (
       <div>
-        <h1>Tower</h1>
+        <h1>Open Tickets Available</h1> 
         <ul>
-            {this.state.towerList.map((value) => (
+            {this.state.ticketList.map((value) => (
                 <li key={value}>{value}</li>
             ))}
         </ul>

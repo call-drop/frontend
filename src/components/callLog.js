@@ -1,63 +1,75 @@
-import React from 'react';
-import {Table} from "react-bootstrap";
+import React, { useEffect } from "react";
 import axios from "../axios";
+import { toast } from "react-toastify";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
-export default class CallLog extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            callLog: [],
-            callLogLoading: true,
-            callLogError: false
-        };
-    }
+export default function CallLog() {
+  const [calls, setCalls] = React.useState([]);
+  const [number, setNumber] = React.useState("");
+  const [loading, setLoading] = React.useState(true);
 
-    componentDidMount() {
-        axios.get('https://call--drop.herokuapp.com/')
-            .then(response => {
-                this.setState({
-                    callLog: response.data,
-                    callLogLoading: false,
-                    callLogError: false
-                });
-            })
-            .catch(error => {
-                this.setState({
-                    callLogLoading: false,
-                    callLogError: true
-                });
-            }); }
+  const getCalls = () => {
+    axios
+      .get("/api/phone/data/"+ number)
+      .then((response) => {
+        setCalls(response.data.data);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        console.log(error);
+        toast.configure();
+        toast.error(error);
+      });
+  };
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.callLog !== this.props.callLog) {
-            this.setState({
-                callLog: this.props.callLog,
-                callLogLoading: false,
-                callLogError: false
-            });
-        }
-    }
 
-    render(){
-        return(
-            <div>
-                <h1 className="bg-dark text-white"> Welcome {"User"} ! </h1>
-                <Table responsive striped bordered hover variant="dark">
-                    <thead>
-                        <tr>
-                          <th>User Name</th>
-                          <th>Last Location</th>
-                          <th>KYC Check</th>
-                          <th>Number of Calls</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.callLog.map((option) => (
-                            <tr key={option.id}>{option.name}</tr>
-                        ))}
-                      </tbody>
-                </Table>
-            </div>
-        )
-    }
+
+  return (
+    <div className=" justify-content-center">
+      <div className="w-75">
+        <h1> Plans</h1>
+        <input type="text" value={number} onChange={(e) => setNumber(e.target.value)} placeholder="Enter Number" />
+        <Button type="submit" onClick={() => getCalls(number)} > Submit </Button>
+
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>id</th>
+              <td>bandwidth_used</td>
+              <th>end_time</th>
+              <th>is_active</th>
+              <th>kyc_agent</th>
+              <th>last_known_location</th>
+              <th>mobile_number</th>
+              <th>owner</th>
+              <th>owner</th>
+              <th>start_time</th> 
+            </tr>
+          </thead>
+          <tbody>
+            {!loading ? (
+              calls.map((values, plan) => (
+                <tr>
+                  <td>{values.id}</td>
+                  <td>{values.bandwidth_used}</td>
+
+                  <td>{values.end_time}</td>
+                  <td>{values.is_active}</td>
+                  <td>{values.is_postpaid}</td>
+                  <td>{values.kyc_agent}</td>
+                  <td>{values.last_known_location}</td>
+                  <td>{values.owner}</td>
+                  <td>{values.phone_data}</td>
+                  <td>{values.start_time}</td>
+                </tr>
+              ))
+            ) : (
+              <div>Loading</div>
+            )}
+          </tbody>
+        </Table>
+      </div>
+    </div>
+  );
 }
