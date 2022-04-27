@@ -39,9 +39,9 @@ export default class SignUp extends Component {
     console.log("A name was submitted: " + this.state.lastName);
     axios
       .post("https://call--drop.herokuapp.com/api/customer/create", {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        aadhar: this.state.email,
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        aadhaar_number: this.state.aadhar,
       })
       .then(function (response) {
         console.log(response);
@@ -80,7 +80,7 @@ export default class SignUp extends Component {
               />
             </div>
             <div className="form-group">
-              <label>Email address</label>
+              <label>Aadhaar Number</label>
               <input
                 type="aadhar"
                 onChange={this.aadharChange}
@@ -88,6 +88,7 @@ export default class SignUp extends Component {
                 placeholder="Aadhar Number"
               />
             </div>
+            <br />
             <Button type="submit" onClick={this.handleSubmit}>
               {" "}
               Sign Up
