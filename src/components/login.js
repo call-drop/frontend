@@ -1,6 +1,4 @@
-import { Formik } from "formik";
-import React, { Component } from "react";
-import axios from "../axios";
+import React from "react";
 import { useFormik } from "formik";
 
 const Login = () => {
