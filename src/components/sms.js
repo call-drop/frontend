@@ -8,15 +8,12 @@ export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-            };
-        this.firstNameChange = this.firstNameChange.bind(this);
-        this.lastNameChange = this.lastNameChange.bind(this);
-        this.emailChange = this.emailChange.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
+            to: '',
+            from: 8296446792,
+            text: '',
+        };
+        this.to = this.toChange.bind(this);
+        this.text = this.text.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
