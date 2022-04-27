@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import axios from "../axios";
 
-export default class SignUp extends Component {
+export default class Linked extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +51,7 @@ export default class SignUp extends Component {
 
   handleSubmit(event) {
     axios
-      .post("https://call--drop.herokuapp.com/api/customer/create", {
+      .post("https://call--drop.herokuapp.com/api/phone/create", {
         number: this.state.number,
         is_postpaid: this.state.is_postpaid,
         owner: this.state.owner,
@@ -87,12 +87,8 @@ export default class SignUp extends Component {
             </div>
             <div className="form-group">
               <label>Is Postpaid</label>
-              <input
-                type="text"
-                onChange={this.is_postpaidChange}
-                className="form-control"
-                placeholder="Is Postpaid"
-              />
+              <input type="radio" className="form-control" onChange={this.is_postpaidChange} value="Yes" name="Yes" /> Yes
+              <input type="radio" className="form-control"onChange={this.is_postpaidChange} value="No" name="No" /> No
             </div>
             <div className="form-group">
               <label>Owner</label>
