@@ -13,7 +13,7 @@ export default class CallLog extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/api/callLog')
+        axios.get('https://call--drop.herokuapp.com/')
             .then(response => {
                 this.setState({
                     callLog: response.data,
