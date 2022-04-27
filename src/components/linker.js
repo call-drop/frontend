@@ -17,6 +17,7 @@ export default class Linked extends Component {
     this.ownerChange = this.ownerChange.bind(this);
     this.kyc_agentChange = this.kyc_agentChange.bind(this);
     this.last_known_locationChange = this.last_known_locationChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   numberChange(event) {
@@ -51,6 +52,7 @@ export default class Linked extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     axios
       .post("https://call--drop.herokuapp.com/api/phone/create", {
         number: this.state.number,
@@ -70,12 +72,10 @@ export default class Linked extends Component {
       <div className="justify-content-center">
         <br />
         <br />
-        <br />
-        <br />
 
         <div className="justify-content-center ">
           <form className="text-black w-50 ">
-            <h3>Sign Up</h3>
+            <h3>Linker</h3>
             <div className="form-group">
               <label>Number</label>
               <input
@@ -86,6 +86,8 @@ export default class Linked extends Component {
                 placeholder="Number"
               />
             </div>
+            <br />
+
             <div className="form-group">
               <label>Is Postpaid</label>
               <div onChange={this.is_postpaidChange}>
@@ -95,6 +97,7 @@ export default class Linked extends Component {
                 No
               </div>
             </div>
+            <br />
             <div className="form-group">
               <label>Owner</label>
               <input
@@ -117,13 +120,8 @@ export default class Linked extends Component {
             <br />
             <Button type="submit" onClick={this.handleSubmit}>
               {" "}
-              Sign Up
+              Link
             </Button>
-
-            <p className="forgot-password text-right">
-              Already registered
-              <a href="/login"> Login In ?</a>
-            </p>
           </form>
         </div>
       </div>
