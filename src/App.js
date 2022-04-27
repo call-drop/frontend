@@ -13,6 +13,7 @@ import CustomerList from "./components/employee/customerList";
 import Profile from "./components/profile";
 import Tower from "./components/employee/tower";
 import OpenTickets from "./components/employee/openTickets";
+import KYC from "./components/employee/KycList";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/profile' element={<Profile />}/>
                 <Route path='/towerCheck' element={<Tower />}/>
                 <Route path='/openTickets' element={<OpenTickets />}/>
+                <Route path='/kyc' element={<KYC />}/>
             </Routes>
         </Router>
     </div>
