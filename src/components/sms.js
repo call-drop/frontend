@@ -32,8 +32,8 @@ export default class SMS extends Component {
     handleSubmit(event) {
         console.log('A name was submitted: ' + this.state.to);
         console.log('A name was submitted: ' + this.state.text);
-        axios.post("https://call--drop.herokuapp.com/api/sms/create/" + this.state.to, {
-            to_id: this.state.to,
+        axios.post("https://call--drop.herokuapp.com/api/sms/create", {
+            to_name: this.state.to,
             from_id: this.state.from,
             content: this.state.text,
         }).then(function (response) {

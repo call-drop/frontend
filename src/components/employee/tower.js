@@ -31,7 +31,11 @@ export default class Tower extends React.Component {
     return (
       <div>
         <h1>Tower</h1>
-
+        <ul>
+            {this.state.towerList.map((value) => (
+                <li key={value}>{value}</li>
+            ))}
+        </ul>
       </div>
     );
   }

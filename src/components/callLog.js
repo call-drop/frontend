@@ -55,8 +55,6 @@ export default class CallLog extends React.Component {
                         {this.state.callLog.map((option) => (
                             <tr key={option.id}>{option.name}</tr>
                         ))}
-                        />
-                        ))}
                       </tbody>
                 </Table>
             </div>
