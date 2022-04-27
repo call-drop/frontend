@@ -1,52 +1,64 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { Row, Col } from "react-bootstrap";
 import axios from "../axios";
 import { toast } from "react-toastify";
+import Table from "react-bootstrap/Table";
 
-export default class Plan extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      plans: [],
-    };
-  }
-  componentDidMount() {
+export default function Plan() {
+  const [plans, setPlans] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  // make a function
+  const getPlans = () => {
     axios
       .get("/api/plan/list")
       .then((response) => {
-        this.setState({
-          plans: response.data,
-        });
+        setPlans(response.data.data);
+        setLoading(false);
       })
       .catch(function (error) {
         console.log(error);
         toast.configure();
         toast.error(error);
       });
-  }
+  };
 
-  render() {
-    return (
-      <div>
-        <Row xs={4} md={4} className="g-4">
-          {this.state.plans.map((_, idx) => (
-            <Col>
-              <Card className="bg-dark text-white">
-                <Card.Img variant="top" src="holder.js/100px160" />
-                <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                  <Card.Text>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (loading) {
+      getPlans();
+    }
+  });
+
+  console.log(plans);
+
+  return (
+    <div>
+      <h1> Plans</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>cost</th>
+            <th>type</th>
+            <th>value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {!loading ? (
+            plans.map((values, plan) => (
+              <tr>
+                <td>{values.id}</td>
+                <td>{values.cost}</td>
+                <td>{values.type}</td>
+                <td>{values.value}</td>
+              </tr>
+            ))
+          ) : (
+            <div>loading</div>
+          )}
+        </tbody>
+      </Table>
+    </div>
+  );
 }
