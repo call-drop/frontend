@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table} from "react-bootstrap";
-import axios from 'axios';
+import axios from "../axios";
 
 export default class CallLog extends React.Component {
     constructor(props) {
