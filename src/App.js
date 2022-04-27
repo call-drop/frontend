@@ -7,6 +7,7 @@ import CallLog from "./components/callLog";
 import Plan from "./components/plan";
 import SignUp from "./components/signup";
 import Login from "./components/login";
+import SMS from "./components/sms";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/plan' element={<Plan />}/>
                 <Route path='/signup' element={<SignUp />}/>
                 <Route path='/login' element={<Login />}/>
+                <Route path='/sms' element={<SMS />}/>
             </Routes>
         </Router>
     </div>

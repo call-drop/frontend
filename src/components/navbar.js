@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Nav, Navbar} from 'react-bootstrap';
+import {Container, Nav, Navbar,NavDropdown} from 'react-bootstrap';
 
 export default function CustomNav() {
   return (
@@ -13,6 +13,15 @@ export default function CustomNav() {
               <Nav.Link href="/call_log">Call Log</Nav.Link>
               <Nav.Link href="/plan">Plan</Nav.Link>
               <Nav.Link href="/ticket">Ticket</Nav.Link>
+              <NavDropdown
+                  id="nav-dropdown-dark-example"
+                  title="User Features"
+                  menuVariant="dark">
+                  <NavDropdown.Item href="/sms">Send SMS</NavDropdown.Item>
+                  <NavDropdown.Item href="/call">Call</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="/action/3.4"></NavDropdown.Item>
+              </NavDropdown>
             </Nav>
             <Nav>
               <Nav.Link href="/signup">Sign Up</Nav.Link>

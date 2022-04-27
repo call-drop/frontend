@@ -3,7 +3,7 @@ import {Button} from "react-bootstrap";
 import axios from "axios";
 
 
-export default class SignUp extends Component {
+export default class SMS extends Component {
 
     constructor(props) {
         super(props);
@@ -12,47 +12,33 @@ export default class SignUp extends Component {
             from: 8296446792,
             text: '',
         };
-        this.to = this.toChange.bind(this);
-        this.text = this.text.bind(this);
+        this.toChange = this.toChange.bind(this);
+        this.textChange = this.textChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    firstNameChange(event) {
+    toChange(event) {
         this.setState({
-        firstName: event.target.value,
+        to: event.target.value,
         });
     }
 
-    lastNameChange(event) {
+    textChange(event) {
         this.setState({
-        lastName: event.target.value,
-        });
-    }
-
-    emailChange(event) {
-        this.setState({
-        email: event.target.value,
-        });
-    }
-
-    passwordChange(event) {
-        this.setState({
-        password: event.target.value,
+        text: event.target.value,
         });
     }
 
     handleSubmit(event) {
-        console.log('A name was submitted: ' + this.state.firstName);
-        console.log('A name was submitted: ' + this.state.lastName);
-        console.log('A name was submitted: ' + this.state.email);
-        console.log('A name was submitted: ' + this.state.password);
-        axios.post("https://call--drop.herokuapp.com/", {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            email: this.state.email,
-            password: this.state.password,
+        console.log('A name was submitted: ' + this.state.to);
+        console.log('A name was submitted: ' + this.state.text);
+        axios.post("https://call--drop.herokuapp.com/api/phone/sms/" + String(this.state.to), {
+            to: this.state.to,
+            from: this.state.from,
         }).then(function (response) {
             console.log(response);
+        }).catch(function (error) {
+            console.log(error);
         })
         event.preventDefault();
     }
@@ -63,27 +49,15 @@ export default class SignUp extends Component {
                 <form className="bg-dark text-white">
                     <h3>Sign Up</h3>
                     <div className="form-group col-lg-2">
-                        <label>First name</label>
-                        <input type="text" onChange={this.firstNameChange} value={this.state.value} placeholder="First name" />
+                        <label>To Number</label>
+                        <input type="text" onChange={this.toChange} value={this.state.value} placeholder="to" />
                     </div>
                     <div className="form-group">
-                        <label>Last name</label>
-                        <input type="text"  onChange={this.lastNameChange} className="form-control" placeholder="Last name" />
+                        <label>Message</label>
+                        <input type="text fields"  onChange={this.textChange} className="form-control" placeholder="Description" />
                     </div>
-                    <div className="form-group">
-                        <label>Email address</label>
-                        <input type="email"  onChange={this.emailChange} className="form-control" placeholder="Enter email" />
-                    </div>
-                    <div className="form-group">
-                        <label>Password</label>
-                        <input type="password"  onChange={this.passwordChange} className="form-control" placeholder="Enter password" />
-                    </div>
-                    <Button type="submit" onClick={this.handleSubmit} > Sign Up</Button>
-
-                    <p className="forgot-password text-right">
-                        Already registered
-                        <a href="/login"> Login In ?</a>
-                    </p>
+                    <br />
+                    <Button type="submit" onClick={this.handleSubmit} > Send Message </Button>
                 </form>
             </div>
         );
