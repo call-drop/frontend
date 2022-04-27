@@ -11,11 +11,12 @@ export default class customerList extends Component {
             customerId:'',
         };
         this.handleGetList = this.handleGetList.bind(this);
+        this.onChangeCustomerId = this.onChangeCustomerId.bind(this);
     }
 
 
     handleGetList() {
-        axios.get("https://call--drop.herokuapp.com/api/phone/get/" + this.state.customerId, {withCredentials: true})
+        axios.get("https://call--drop.herokuapp.com/api/customer/phone_number_list/" + this.state.customerId, {withCredentials: true})
         .then(function (response) {
             console.log(response);
             this.setState({
@@ -26,7 +27,13 @@ export default class customerList extends Component {
             console.log(error);
         });
     }
-
+    
+    onChangeCustomerId(e) {
+        this.setState({
+            customerId: e.target.value,
+        });
+    }
+    
     render() {
         console.log(this.state.numberList);
         return (
@@ -58,8 +65,8 @@ export default class customerList extends Component {
                 }
                 else {
                     return (
-                        <div>
-                            <h2>No Customers</h2>
+                        <div className="bg-dark text-white">
+                            <h2>No Phone Numbers Available</h2>
                         </div>
                     );
                 }
