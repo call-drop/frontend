@@ -88,7 +88,7 @@ export default class Linked extends Component {
             <div className="form-group">
               <label>Is Postpaid</label>
               <input type="radio" className="form-control" onChange={this.is_postpaidChange} value="Yes" name="Yes" /> Yes
-              <input type="radio" className="form-control"onChange={this.is_postpaidChange} value="No" name="No" /> No
+              <input type="radio" className="form-control" onChange={this.is_postpaidChange} value="No" name="No" /> No
             </div>
             <div className="form-group">
               <label>Owner</label>
