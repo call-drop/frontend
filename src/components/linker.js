@@ -26,6 +26,7 @@ export default class Linked extends Component {
   }
 
   is_postpaidChange(event) {
+    console.log(event.target.value);
     this.setState({
       is_postpaid: event.target.value,
     });
@@ -87,8 +88,12 @@ export default class Linked extends Component {
             </div>
             <div className="form-group">
               <label>Is Postpaid</label>
-              <input type="radio" className="form-control" onChange={this.is_postpaidChange} value="Yes" name="Yes" /> Yes
-              <input type="radio" className="form-control" onChange={this.is_postpaidChange} value="No" name="No" /> No
+              <div onChange={this.is_postpaidChange}>
+                <input type="radio" name="optradio" value={true} />
+                Yes
+                <input type="radio" name="optradio" value={false} />
+                No
+              </div>
             </div>
             <div className="form-group">
               <label>Owner</label>
