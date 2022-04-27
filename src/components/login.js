@@ -1,60 +1,59 @@
+import {Formik} from "formik";
 import React, { Component } from "react";
-import axios from "axios";
+import axios from "../axios";
+import { useFormik } from 'formik';
 
-export default class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            phoneNumber: '',
-            password: '',
-            };
-        this.phoneNumber = this.phoneNumberChange.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+const Login = () => {
+  // Pass the useFormik() hook initial form values and a submit function that will
+  // be called when the form is submitted
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      userid: '',
+      password: '',
+    },
+    onSubmit: values => {
+      localStorage.setItem('username', values.username);
+      localStorage.setItem('userid', values.userid);
+      localStorage.setItem('password', values.password);
+      if (values.userid === '-1')
+        localStorage.setItem('isEmp', "1");
+      else
+        localStorage.setItem('isEmp', "");
+      window.location.reload();
+    },
+  });
+  return (
+    <form onSubmit={formik.handleSubmit}>
+      <label htmlFor="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.username}
+      />
 
-    phoneNumberChange(event) {
-        this.setState({
-        phoneNumber: event.target.value,
-        });
-    }
+      <label htmlFor="userid">User ID</label>
+      <input
+        id="userid"
+        name="userid"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.userid}
+      />
 
-    passwordChange(event) {
-        this.setState({
-        password: event.target.value,
-        });
-    }
+      <label htmlFor="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="text"
+        onChange={formik.handleChange}
+        value={formik.values.password}
+      />
 
-    handleSubmit(event) {
-        axios.post("https://call--drop.herokuapp.com/", {
-            phoneNumber: this.state.phoneNumber,    
-            password: this.state.password,
-        }).then(function (response) {
-            console.log(response);
-        })
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            <form className="bg-dark text-white">
-                <h3>Log In</h3>
-                <div className="form-group">
-                    <label>Phone Number</label>
-                    <input type="email" onChange={this.phoneNumber} value={this.state.phoneNumber} className="form-control" placeholder="Enter email" />
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
-
-                <br />
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
-                <br />
-                <p className="forgot-password text-right">
-                    <a href="/login">Forgot password?</a>
-                </p>
-            </form>
-        );
-    }
-}
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+export default Login;
