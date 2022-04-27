@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import { Row, Col } from "react-bootstrap";
 import axios from "../axios";
 import { toast } from "react-toastify";
 import Table from "react-bootstrap/Table";
