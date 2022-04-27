@@ -46,6 +46,7 @@ export default class SignUp extends Component {
       })
       .then(function (response) {
         console.log(response);
+        toast.configure();
         toast.success("Sign Up Successfully");
       });
     event.preventDefault();

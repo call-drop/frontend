@@ -45,6 +45,7 @@ export default class SMS extends Component {
             from_id: this.state.from,
             content: this.state.text,
         }).then(function (response) {
+            toast.configure();
             toast.success("Message Sent");
             console.log(response);
         }).catch(function (error) {

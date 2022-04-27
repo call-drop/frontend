@@ -56,6 +56,7 @@ export default class Linked extends Component {
       })
       .then(function (response) {
         console.log(response);
+        toast.configure();
         toast.success("Linked Successfully");
       });
     event.preventDefault();

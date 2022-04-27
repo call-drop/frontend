@@ -15,6 +15,7 @@ export default class Tower extends React.Component {
         axios.get("https://call--drop.herokuapp.com/api/towers-to-maintain", {withCredentials: true})
             .then(function (response) {
                 console.log(response);
+                toast.configure();
                 toast.success("List of the towers");
                 this.setState({
                     towerList: response.data.data.data,

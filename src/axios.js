@@ -3,7 +3,7 @@ import axios_base from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
-const config = {
+export const config = {
 	position: 'top-center',
 	autoClose: 4000,
 	hideProgressBar: true,

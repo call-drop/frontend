@@ -20,6 +20,7 @@ export default class Profile extends Component {
         axios.get("https://call--drop.herokuapp.com/api/customer/phone_number_list/" + this.state.customerId, {withCredentials: true})
         .then(function (response) {
             console.log(response);
+            toast.configure();
             toast.success("Phone Numbers List Retrieved");
             this.setState({
                 numberList: response.data,

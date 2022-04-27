@@ -14,6 +14,7 @@ export default function KYC() {
       .then((response) => {
         setKyc(response.data.data);
         setLoading(false);
+        toast.configure();
         toast.success("Tickets fetched successfully");
       })
       .catch(function (error) {

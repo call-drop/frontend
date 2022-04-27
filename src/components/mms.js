@@ -62,6 +62,7 @@ export default class MMS extends Component {
       })
       .then(function (response) {
         console.log(response);
+        toast.configure();
         toast.success("Message Sent");
       })
       .catch(function (error) {

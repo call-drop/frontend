@@ -38,6 +38,7 @@ export default class Call extends Component {
         duration: Math.floor(Math.random() * 500),
       })
       .then(function (response) {
+        toast.configure();
         toast.success("sucess")
         console.log(response);
       })
