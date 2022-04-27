@@ -20,7 +20,7 @@ export default function CustomNav() {
                   <NavDropdown.Item href="/sms">Send SMS</NavDropdown.Item>
                   <NavDropdown.Item href="/call">Call</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/action/3.4"></NavDropdown.Item>
+                  <NavDropdown.Item href="/action/3.4">lol bro</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>

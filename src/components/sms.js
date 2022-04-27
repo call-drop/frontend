@@ -47,14 +47,14 @@ export default class SMS extends Component {
         return (
             <div>
                 <form className="bg-dark text-white">
-                    <h3>Sign Up</h3>
+                    <h3>Send SMS</h3>
                     <div className="form-group col-lg-2">
                         <label>To Number</label>
                         <input type="text" onChange={this.toChange} value={this.state.value} placeholder="to" />
                     </div>
                     <div className="form-group">
                         <label>Message</label>
-                        <input type="text fields"  onChange={this.textChange} className="form-control" placeholder="Description" />
+                        <input type="text arera"  onChange={this.textChange} value={this.state.textChange} className="form-control" placeholder="Description" />
                     </div>
                     <br />
                     <Button type="submit" onClick={this.handleSubmit} > Send Message </Button>
