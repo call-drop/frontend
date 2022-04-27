@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { Form, Formik, Field } from "formik";
-import axios from "axios";
+import axios from "../axios";
 
 export default class Ticket extends React.Component {
   render() {
