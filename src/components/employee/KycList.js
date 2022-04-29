@@ -10,7 +10,7 @@ export default function KYC() {
   // make a function
   const getKyc = () => {
     axios
-      .get("/api/tickets/list")
+      .get("/api/incomplete-kyc")
       .then((response) => {
         setKyc(response.data.data);
         setLoading(false);
@@ -50,11 +50,11 @@ export default function KYC() {
               kyc.map((values, plan) => (
                 <tr>
                   <td>{values.id}</td>
-                  <td>{values.validity}</td>
+                  <td>{values.aadhar_number}</td>
 
-                  <td>{values.cost}</td>
-                  <td>{values.type}</td>
-                  <td>{values.value}</td>
+                  <td>{values.first_name}</td>
+                  <td>{values.last_name}</td>
+                  <td>{values.middle_name}</td>
                 </tr>
               ))
             ) : (

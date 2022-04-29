@@ -41,9 +41,9 @@ export default class customerList extends Component {
             <div>
                 The list of the customers:
                 <ul>
-                    {this.state.callList.map((val) => {
+                    {this.state.callList.map((id,val) => {
                         return (
-                            <li key={val}>
+                            <li key={id}>
                                 {val}
                             </li>
                         );
