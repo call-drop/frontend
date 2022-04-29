@@ -16,6 +16,7 @@ import Linker from "./components/linker";
 import KYC from "./components/employee/KycList";
 import MMS from "./components/mms";
 import CustomNav from "./components/navbar";
+import EmployeeList from "./components/employee/employeeList";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/towerCheck" element={<Tower />} />
           <Route path="/linker" element={<Linker />} />
           <Route path="/kyc" element={<KYC />} />
+          <Route path="/employeeList" element={<EmployeeList />} />
 
           <Route path="/openTickets" element={<OpenTickets />} />
         </Routes>

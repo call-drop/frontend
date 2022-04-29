@@ -34,6 +34,7 @@ export default function CustomNav() {
                   {" "}
                   Open Tickets{" "}
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/employeeList">Employee List</NavDropdown.Item>
                 <NavDropdown.Item href="/kyc"> KYC </NavDropdown.Item>
               </NavDropdown>
             </Nav>
