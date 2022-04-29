@@ -56,21 +56,28 @@ export default class SMS extends Component {
 
     render() {
         return (
-            <div>
+            <div className="row">
+                <div className="col-3" />
                 <form className="bg-dark text-white">
+                    <br />
                     <h3>Send SMS</h3>
-                    <div className="form-group col-lg-2">
+                    <br />
+                    <div className="form-group">
                         <label>To Number</label>
-                        <input type="text" onChange={this.toChange} value={this.state.to} placeholder="to" />
+                        <br />
+                        <input type="text" onChange={this.toChange} value={this.state.to} className="col-3"  placeholder="to" />
                     </div>
-
-                    <div className="form-group col-lg-2">
+                    <br />
+                    <div className="form-group">
                         <label>From Number</label>
-                        <input type="text" onChange={this.fromChange} value={this.state.from} placeholder="to" />
+                        <br />
+                        <input type="text" onChange={this.fromChange} value={this.state.from} className="col-3"  placeholder="to" />
                     </div>
+                    <br />
                     <div className="form-group">
                         <label>Message</label>
-                        <input type="text arera"  onChange={this.textChange} value={this.state.textChange} className="form-control" placeholder="Description" />
+                        <br />
+                        <textarea onChange={this.textChange} value={this.state.textChange} className="col-3" placeholder="Description" />
                     </div>
                     <br />
                     <Button type="submit" onClick={this.handleSubmit} > Send Message </Button>

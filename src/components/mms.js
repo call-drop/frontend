@@ -73,10 +73,13 @@ export default class MMS extends Component {
 
   render() {
     return (
-      <div>
+      <div  className="row">
+        <div className= "col-3"/> 
         <form className="bg-dark text-white">
+          <br />
           <h3>Send MMS</h3>
-          <div className="form-group col-lg-2">
+          <br />
+          <div className="form-group">
             <label>To Number</label>
             <input
               type="number"
