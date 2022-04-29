@@ -6,7 +6,7 @@ export default function CustomNav() {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="home">Call Drop</Navbar.Brand>
+          <Navbar.Brand href="/">Call Drop</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -51,6 +51,18 @@ export default function CustomNav() {
               <p>Not Logged IN</p>
             )}
           </Navbar.Brand>
+          <Nav>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                localStorage.clear();
+                // send user to home page
+                window.location.href = "/login";
+              }}
+            >
+              Logout
+            </button>
+          </Nav>
         </Container>
       </Navbar>
     </div>
