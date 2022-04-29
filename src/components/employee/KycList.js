@@ -33,16 +33,16 @@ export default function KYC() {
 
   return (
     <div className=" justify-content-center">
-      <div className="w-75">
+      <div className="w-auto">
         <h1> Unchecked KYC </h1>
         <Table striped bordered hover>
           <thead>
             <tr>
               <th>id</th>
-              <td>validity</td>
-              <th>cost</th>
-              <th>type</th>
-              <th>value</th>
+              <td>Aadhar Number</td>
+              <th>First Name</th>
+              <th>Middle Name</th>
+              <th>Last Name</th>
             </tr>
           </thead>
           <tbody>
@@ -53,8 +53,8 @@ export default function KYC() {
                   <td>{values.aadhar_number}</td>
 
                   <td>{values.first_name}</td>
-                  <td>{values.last_name}</td>
                   <td>{values.middle_name}</td>
+                  <td>{values.last_name}</td>
                 </tr>
               ))
             ) : (
