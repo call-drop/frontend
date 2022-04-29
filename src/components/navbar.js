@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
+
 export default function CustomNav() {
   return (
     <div>
@@ -11,7 +12,6 @@ export default function CustomNav() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/call_log">Call Log</Nav.Link>
-              <Nav.Link href="/plan">Plan</Nav.Link>
               <Nav.Link href="/ticket">Ticket</Nav.Link>
               <NavDropdown
                 id="nav-dropdown-dark-example"
@@ -22,6 +22,7 @@ export default function CustomNav() {
                 <NavDropdown.Item href="/call">Call</NavDropdown.Item>
                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item href="/linker">Linker</NavDropdown.Item>
+                <NavDropdown.Item href="/personalPlan">Personal Plan</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/customerList">
                   Customer List
@@ -36,6 +37,7 @@ export default function CustomNav() {
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/employeeList">Employee List</NavDropdown.Item>
                 <NavDropdown.Item href="/kyc"> KYC </NavDropdown.Item>
+                <NavDropdown.Item href="/plan"> Plan </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
@@ -45,10 +47,15 @@ export default function CustomNav() {
           </Navbar.Collapse>
           <Navbar.Brand>
             &nbsp; || &nbsp;
+            {localStorage.getItem("username") ? (
+              localStorage.getItem("username")
+            ) : (
+              <p>Nope</p>
+            )}
             {localStorage.getItem("userid") ? (
               localStorage.getItem("userid")
             ) : (
-              <p>Not Logged IN</p>
+              <p></p>
             )}
           </Navbar.Brand>
           <Nav>

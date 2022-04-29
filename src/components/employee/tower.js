@@ -46,8 +46,8 @@ export default function Tower() {
               <th>id</th>
               <th>apt_number</th>
               <td>last_maintained</td>
-              <th>maintenance_office</th>
               <th>needs_maintenance</th>
+              <th>maintenance_office</th>
               <th>street_name</th>
               <th>street_number</th>
             </tr>

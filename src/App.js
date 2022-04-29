@@ -3,7 +3,7 @@ import Home from "./components/home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Ticket from "./components/ticket";
 import CallLog from "./components/callLog";
-import Plan from "./components/plan";
+import Plan from "./components/employee/plan";
 import SignUp from "./components/signup";
 import Login from "./components/login";
 import SMS from "./components/sms";
@@ -17,6 +17,9 @@ import KYC from "./components/employee/KycList";
 import MMS from "./components/mms";
 import CustomNav from "./components/navbar";
 import EmployeeList from "./components/employee/employeeList";
+import CustomerPlan from "./components/customerPlan";
+import List from "./components/list";
+import List2 from "./components/list2";
 
 function App() {
   return (
@@ -27,6 +30,8 @@ function App() {
         <Routes>
           <Route path="/ticket" element={<Ticket />} />
           <Route path="/" element={<Home />} />
+          <Route path="/listtt" element={<List />} />
+          <Route path="/listtt2" element={<List2 />} />
 
           <Route path="/call_Log" element={<CallLog />} />
           <Route path="/plan" element={<Plan />} />
@@ -41,7 +46,7 @@ function App() {
           <Route path="/linker" element={<Linker />} />
           <Route path="/kyc" element={<KYC />} />
           <Route path="/employeeList" element={<EmployeeList />} />
-
+          <Route path="/personalPlan" element={<CustomerPlan />} />
           <Route path="/openTickets" element={<OpenTickets />} />
         </Routes>
       </Router>

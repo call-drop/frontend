@@ -64,12 +64,12 @@ export default class Linked extends Component {
 
   render() {
     return (
-      <div className="justify-content-center">
+      <div className="justify-content-center bg-dark text-white">
         <br />
         <br />
 
-        <div className="justify-content-center ">
-          <form className="text-black w-50 ">
+        <div className="justify-content-center">
+          <form className="text-white w-50">
             <h3>Linker</h3>
             <div className="form-group">
               <label>Number</label>
