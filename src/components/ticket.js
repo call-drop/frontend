@@ -59,7 +59,6 @@ export default class Ticket extends React.Component {
               </Form>
             </Formik>
           </Card.Body>
-          <Card.Footer className="text-muted"> 2 days ago </Card.Footer>
         </Card>
       </div>
     );
