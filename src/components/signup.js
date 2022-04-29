@@ -55,12 +55,7 @@ export default class SignUp extends Component {
   render() {
     return (
       <div className="justify-content-center">
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <div className="justify-content-center ">
+        <div className="justify-content-center bg-dark text-white">
           <form className="text-black w-50 ">
             <h3>Sign Up</h3>
             <div className="form-group">
