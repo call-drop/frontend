@@ -5,7 +5,6 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <CustomNav />
         <p>
           <h6>This is</h6>
           <h1>Call Drop.</h1>

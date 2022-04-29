@@ -15,14 +15,18 @@ import OpenTickets from "./components/employee/openTickets";
 import Linker from "./components/linker";
 import KYC from "./components/employee/KycList";
 import MMS from "./components/mms";
+import CustomNav from "./components/navbar";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      {/* <Home /> */}
+      <CustomNav />
       <Router>
         <Routes>
           <Route path="/ticket" element={<Ticket />} />
+          <Route path="/home" element={<Home />} />
+
           <Route path="/call_Log" element={<CallLog />} />
           <Route path="/plan" element={<Plan />} />
           <Route path="/signup" element={<SignUp />} />
