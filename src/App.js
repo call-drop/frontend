@@ -25,7 +25,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/ticket" element={<Ticket />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
 
           <Route path="/call_Log" element={<CallLog />} />
           <Route path="/plan" element={<Plan />} />
