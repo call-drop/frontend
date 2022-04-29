@@ -1,46 +1,77 @@
-import React from 'react';
-import { toast } from 'react-toastify';
-import axios from '../../axios';
+import React, { useEffect } from "react";
+import { toast } from "react-toastify";
+import axios from "../../axios";
+import Table from "react-bootstrap/Table";
 
-export default class Tower extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            towerList: [],
-        };
-        this.handleGetList = this.handleGetList.bind(this);
+export default function Tower() {
+  const [towerList, settowerList] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  // make a function
+  const getData = () => {
+    axios
+      .get("https://call--drop.herokuapp.com/api/towers-to-maintain", {
+        withCredentials: true,
+      })
+      .then(function (response) {
+        console.log(response.data.data, " response data");
+        settowerList(response.data.data);
+        setLoading(false);
+        console.log(response);
+        toast.configure();
+        toast.success("List of the towers");
+      })
+      .catch(function (error) {
+        console.log(error);
+        toast.configure();
+        toast.error(error);
+      });
+  };
+
+  useEffect(() => {
+    if (loading) {
+      getData();
     }
+  });
 
-    handleGetList() {
-        axios.get("https://call--drop.herokuapp.com/api/towers-to-maintain", {withCredentials: true})
-            .then(function (response) {
-                console.log(response);
-                toast.configure();
-                toast.success("List of the towers");
-                this.setState({
-                    towerList: response.data.data.data,
-                });
-            }.bind(this))
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+  console.log(towerList, " is tower list");
 
-    componentDidMount() {
-        this.handleGetList();
-        console.log("lol", this.state.towerList);
-    }
+  return (
+    <div className=" justify-content-center">
+      <div className="w-75">
+        <h1> Towers </h1>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>apt_number</th>
+              <td>last_maintained</td>
+              <th>maintenance_office</th>
+              <th>needs_maintenance</th>
+              <th>street_name</th>
+              <th>street_number</th>
+            </tr>
+          </thead>
+          <tbody>
+            {!loading ? (
+              towerList.map((values, plan) => (
+                <tr>
+                  <td>{values.id}</td>
+                  <td>{values.apt_number}</td>
+                  <td>{values.last_maintained}</td>
+                  <td>{values.needs_maintenance ? "True" : "False"}</td>
 
-  render() {
-    return (
-      <div>
-        <h1>Tower</h1>
-        <ul>
-            {this.state.towerList.map((value) => (
-                <li key={value}>{value}</li>
-            ))}
-        </ul>
+                  <td>{values.maintenance_office}</td>
+                  <td>{values.street_name}</td>
+                  <td>{values.street_number}</td>
+                </tr>
+              ))
+            ) : (
+              <div>Loading</div>
+            )}
+          </tbody>
+        </Table>
       </div>
-    );
-  }
+    </div>
+  );
 }
