@@ -11,7 +11,7 @@ export default function CallLog() {
 
   const getCalls = () => {
     axios
-      .get("/api/phone/data/"+ number)
+      .get("/api/phone/data/" + number)
       .then((response) => {
         setCalls(response.data.data);
         setLoading(false);
@@ -25,14 +25,20 @@ export default function CallLog() {
       });
   };
 
-
-
   return (
     <div className=" justify-content-center">
       <div className="w-75">
-        <h1> Plans</h1>
-        <input type="text" value={number} onChange={(e) => setNumber(e.target.value)} placeholder="Enter Number" />
-        <Button type="submit" onClick={() => getCalls(number)} > Submit </Button>
+        <h1> Call Logs</h1>
+        <input
+          type="text"
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+          placeholder="Enter Number"
+        />
+        <Button type="submit" onClick={() => getCalls(number)}>
+          {" "}
+          Submit{" "}
+        </Button>
 
         <Table striped bordered hover>
           <thead>
@@ -41,12 +47,13 @@ export default function CallLog() {
               <td>bandwidth_used</td>
               <th>end_time</th>
               <th>is_active</th>
+              <th>is_postpaid</th>
               <th>kyc_agent</th>
               <th>last_known_location</th>
               <th>mobile_number</th>
               <th>owner</th>
-              <th>owner</th>
-              <th>start_time</th> 
+              <th>phone_data</th>
+              <th>start_time</th>
             </tr>
           </thead>
           <tbody>
@@ -55,13 +62,18 @@ export default function CallLog() {
                 <tr>
                   <td>{values.id}</td>
                   <td>{values.bandwidth_used}</td>
-
                   <td>{values.end_time}</td>
-                  <td>{values.is_active}</td>
-                  <td>{values.is_postpaid}</td>
+                  <td>{values.is_active ? "True" : "False"}</td>
+                  <td>{values.is_postpaid ? "True" : "False"}</td>
                   <td>{values.kyc_agent}</td>
-                  <td>{values.last_known_location}</td>
+                  <td>
+                    {values.last_known_location === null
+                      ? " NA"
+                      : values.last_known_location}
+                  </td>
+                  <td>{values.mobile_number}</td>
                   <td>{values.owner}</td>
+
                   <td>{values.phone_data}</td>
                   <td>{values.start_time}</td>
                 </tr>
