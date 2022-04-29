@@ -7,7 +7,6 @@ export default function KYC() {
   const [kyc, setKyc] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
-  // make a function
   const getKyc = () => {
     axios
       .get("/api/incomplete-kyc")
